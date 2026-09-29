@@ -1,0 +1,68 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 420" width="640" height="420" role="img" aria-label="Два миньона работают вместе">
+  <defs>
+    <linearGradient id="s2" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#FFE45C"/><stop offset=".6" stop-color="#F5C518"/><stop offset="1" stop-color="#D9A50C"/>
+    </linearGradient>
+    <linearGradient id="d2" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#3C78D8"/><stop offset="1" stop-color="#1E4C9C"/>
+    </linearGradient>
+    <linearGradient id="m2" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#F2F4F6"/><stop offset="1" stop-color="#5C646C"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="640" height="420" fill="#F4F4F2"/>
+  <circle cx="320" cy="210" r="150" fill="#FFFFFF" stroke="#E2E2DE" stroke-width="3"/>
+
+  <!-- верстак / стол -->
+  <rect x="150" y="286" width="340" height="22" fill="#C9A227" stroke="#1A1C1F" stroke-width="6"/>
+  <rect x="176" y="308" width="20" height="72" fill="#8A9299" stroke="#1A1C1F" stroke-width="6"/>
+  <rect x="444" y="308" width="20" height="72" fill="#8A9299" stroke="#1A1C1F" stroke-width="6"/>
+  <rect x="272" y="248" width="42" height="38" fill="#2F68C8" stroke="#16336B" stroke-width="5"/>
+  <rect x="330" y="262" width="34" height="24" fill="#4A84E8" stroke="#16336B" stroke-width="5"/>
+
+  <!-- миньон слева (высокий) -->
+  <g>
+    <path d="M182 116 h96 v170 a28 28 0 0 1-28 28 h-40 a28 28 0 0 1-28-28 z" fill="url(#s2)" stroke="#1A1C1F" stroke-width="7"/>
+    <path d="M182 186 h96 v100 a28 28 0 0 1-28 28 h-40 a28 28 0 0 1-28-28 z" fill="url(#d2)" stroke="#1A1C1F" stroke-width="7"/>
+    <circle cx="212" cy="224" r="9" fill="#F2C518" stroke="#1A1C1F" stroke-width="4"/>
+    <circle cx="250" cy="224" r="9" fill="#F2C518" stroke="#1A1C1F" stroke-width="4"/>
+    <path d="M170 200 q-40 20 -46 56" stroke="#1A1C1F" stroke-width="17" stroke-linecap="round" fill="none"/>
+    <path d="M290 200 q40 16 52 44" stroke="#1A1C1F" stroke-width="17" stroke-linecap="round" fill="none"/>
+    <ellipse cx="230" cy="70" rx="82" ry="56" fill="url(#s2)" stroke="#1A1C1F" stroke-width="7"/>
+    <g fill="#1A1C1F"><path d="M200 28 q4-24 17-17 q2 15 6 21 z"/><path d="M224 18 q7-24 19-15 q0 15 2 21 z"/><path d="M248 18 q11-20 21-9 q-6 13-11 18 z"/></g>
+    <path d="M150 58 q80-20 160 0 v14 q-80-20-160 0 z" fill="#4A5158" stroke="#1A1C1F" stroke-width="6"/>
+    <circle cx="200" cy="80" r="23" fill="url(#m2)" stroke="#1A1C1F" stroke-width="6"/>
+    <circle cx="200" cy="80" r="15" fill="#fff" stroke="#2C3238" stroke-width="4"/>
+    <circle cx="201" cy="81" r="6" fill="#15181B"/>
+    <circle cx="260" cy="80" r="23" fill="url(#m2)" stroke="#1A1C1F" stroke-width="6"/>
+    <circle cx="260" cy="80" r="15" fill="#fff" stroke="#2C3238" stroke-width="4"/>
+    <circle cx="259" cy="81" r="6" fill="#15181B"/>
+    <path d="M204 108 q26 16 52 0 q-9 19-26 19 q-17 0-26-19 z" fill="#2A1A12" stroke="#1A1C1F" stroke-width="5"/>
+  </g>
+
+  <!-- миньон справа (низкий, толстый) -->
+  <g>
+    <path d="M392 168 h104 v118 a28 28 0 0 1-28 28 h-48 a28 28 0 0 1-28-28 z" fill="url(#s2)" stroke="#1A1C1F" stroke-width="7"/>
+    <path d="M392 222 h104 v64 a28 28 0 0 1-28 28 h-48 a28 28 0 0 1-28-28 z" fill="url(#d2)" stroke="#1A1C1F" stroke-width="7"/>
+    <circle cx="424" cy="254" r="9" fill="#F2C518" stroke="#1A1C1F" stroke-width="4"/>
+    <circle cx="464" cy="254" r="9" fill="#F2C518" stroke="#1A1C1F" stroke-width="4"/>
+    <path d="M380 250 q-36 8 -44 30" stroke="#1A1C1F" stroke-width="16" stroke-linecap="round" fill="none"/>
+    <path d="M508 246 q34 4 44 26" stroke="#1A1C1F" stroke-width="16" stroke-linecap="round" fill="none"/>
+    <ellipse cx="444" cy="126" rx="78" ry="52" fill="url(#s2)" stroke="#1A1C1F" stroke-width="7"/>
+    <g fill="#1A1C1F"><path d="M416 88 q4-22 16-15 q2 13 5 19 z"/><path d="M438 80 q7-22 18-13 q0 13 2 19 z"/><path d="M460 82 q10-18 19-8 q-6 11-10 16 z"/></g>
+    <path d="M366 116 q78-18 156 0 v13 q-78-18-156 0 z" fill="#4A5158" stroke="#1A1C1F" stroke-width="6"/>
+    <circle cx="416" cy="136" r="22" fill="url(#m2)" stroke="#1A1C1F" stroke-width="6"/>
+    <circle cx="416" cy="136" r="14" fill="#fff" stroke="#2C3238" stroke-width="4"/>
+    <circle cx="417" cy="137" r="6" fill="#15181B"/>
+    <circle cx="472" cy="136" r="22" fill="url(#m2)" stroke="#1A1C1F" stroke-width="6"/>
+    <circle cx="472" cy="136" r="14" fill="#fff" stroke="#2C3238" stroke-width="4"/>
+    <circle cx="471" cy="137" r="6" fill="#15181B"/>
+    <path d="M420 164 q24 14 48 0 q-8 17-24 17 q-16 0-24-17 z" fill="#2A1A12" stroke="#1A1C1F" stroke-width="5"/>
+  </g>
+
+  <g>
+    <rect x="392" y="24" width="224" height="34" fill="#050607"/>
+    <text x="408" y="47" font-family="monospace" font-size="17" fill="#fff" letter-spacing="3">ВМЕСТЕ СИЛЬНЕЕ</text>
+  </g>
+</svg>

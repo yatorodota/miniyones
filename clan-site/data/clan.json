@@ -1,0 +1,789 @@
+{
+  "version": 3,
+  "config": {
+    "clanName": "МИНЬОНЫ",
+    "tag": "MINIS",
+    "motto": "322",
+    "heroTitleTop": "АРМИЯ",
+    "heroTitleBottom": "МИНЬОНОВ",
+    "heroImage": "assets/img/hero.svg",
+    "heroCaption": "VANILLA // MINECRAFT CLAN",
+    "heroSubtitle": "Клан в Minecraft: чистое выживание, общая база и никаких модов. Набор по заявке — пиши в Discord, поможем освоиться.",
+    "description": "Мы — МИНЬОНЫ: клан без токсичности. Правила простые: уважение к игрокам, чужие постройки не трогаем, взял задачу — доведи до конца.",
+    "founded": "2026",
+    "recruitment": "request",
+    "recruitmentText": "Набор по заявке: от 12 лет, микрофон обязателен, минимум час в день, испытательный срок — неделя.",
+    "discord": "https://discord.gg/8X4KR2H9xU",
+    "donate": "",
+    "stats": {
+      "seasons": 0,
+      "projects": 0,
+      "goals": 0
+    },
+    "showStats": false,
+    "showAccess": true,
+    "showSkills": true,
+    "showRecruitment": true
+  },
+  "ranks": [
+    {
+      "id": "leader",
+      "name": "Лидер",
+      "color": "#ffcf3f",
+      "order": 1
+    },
+    {
+      "id": "co",
+      "name": "Заместитель",
+      "color": "#ff8a3d",
+      "order": 2
+    },
+    {
+      "id": "moder",
+      "name": "Ветеран",
+      "color": "#4fd1ff",
+      "order": 3
+    },
+    {
+      "id": "builder",
+      "name": "Доверенный",
+      "color": "#7ee787",
+      "order": 4
+    },
+    {
+      "id": "member",
+      "name": "Участник",
+      "color": "#c9d1d9",
+      "order": 5
+    }
+  ],
+  "members": [
+    {
+      "nick": "Aleksy",
+      "realName": "Алексей",
+      "rank": "leader",
+      "status": "game",
+      "joined": "2025-11-11",
+      "note": "Глава",
+      "id": "m_jkctmdigh5"
+    },
+    {
+      "nick": "Narrator208",
+      "realName": "Коля",
+      "rank": "co",
+      "status": "game",
+      "joined": "",
+      "note": "зам",
+      "id": "m_cy1pl84rcx"
+    }
+  ],
+  "skills": [
+    {
+      "name": "НАВЫК 01",
+      "hint": "Слушать других",
+      "id": "s_a23ii9ych6"
+    },
+    {
+      "name": "НАВЫК 02",
+      "hint": "Строить что по кайфу",
+      "id": "s_ybo5acmch6"
+    },
+    {
+      "name": "НАВЫК 03",
+      "hint": "Уметь добывать ресы",
+      "id": "s_rj58tqfch6"
+    },
+    {
+      "name": "НАВЫК 04",
+      "hint": "",
+      "id": "s_x4bvveuch6"
+    },
+    {
+      "name": "НАВЫК 05",
+      "hint": "",
+      "id": "s_xdn8j4hch6"
+    },
+    {
+      "name": "НАВЫК 06",
+      "hint": "",
+      "id": "s_1vb2gtoch6"
+    }
+  ],
+  "codes": [
+    {
+      "id": "i_qmjzaep45w",
+      "code": "MNY-RC4C-VU8V",
+      "note": "",
+      "nick": "",
+      "at": "2026-09-29T14:32:04.052Z",
+      "usedBy": "",
+      "usedAt": ""
+    },
+    {
+      "id": "i_pj5y95f45w",
+      "code": "MNY-MJQN-CJFC",
+      "note": "",
+      "nick": "",
+      "at": "2026-09-29T14:32:04.052Z",
+      "usedBy": "",
+      "usedAt": ""
+    },
+    {
+      "id": "i_gun64yg45w",
+      "code": "MNY-DXKQ-4PR9",
+      "note": "",
+      "nick": "",
+      "at": "2026-09-29T14:32:04.052Z",
+      "usedBy": "",
+      "usedAt": ""
+    },
+    {
+      "id": "i_qy8wim745w",
+      "code": "MNY-E85Z-9RTW",
+      "note": "",
+      "nick": "",
+      "at": "2026-09-29T14:32:04.052Z",
+      "usedBy": "",
+      "usedAt": ""
+    },
+    {
+      "id": "i_4j97dpr45w",
+      "code": "MNY-AEDF-PTRW",
+      "note": "",
+      "nick": "",
+      "at": "2026-09-29T14:32:04.052Z",
+      "usedBy": "",
+      "usedAt": ""
+    },
+    {
+      "id": "i_3uoo1if41f",
+      "code": "MNY-4WQZ-KXKJ",
+      "note": "",
+      "nick": "",
+      "at": "2026-09-29T14:32:03.891Z",
+      "usedBy": "",
+      "usedAt": ""
+    },
+    {
+      "id": "i_0jmzb3g41f",
+      "code": "MNY-W6Q8-K66E",
+      "note": "",
+      "nick": "",
+      "at": "2026-09-29T14:32:03.891Z",
+      "usedBy": "",
+      "usedAt": ""
+    },
+    {
+      "id": "i_ebn0di541f",
+      "code": "MNY-XAYU-J8G9",
+      "note": "",
+      "nick": "",
+      "at": "2026-09-29T14:32:03.891Z",
+      "usedBy": "",
+      "usedAt": ""
+    },
+    {
+      "id": "i_tsx16cw41f",
+      "code": "MNY-RMNJ-NEJ9",
+      "note": "",
+      "nick": "",
+      "at": "2026-09-29T14:32:03.891Z",
+      "usedBy": "",
+      "usedAt": ""
+    },
+    {
+      "id": "i_i6nmtch41f",
+      "code": "MNY-63DR-V5DX",
+      "note": "",
+      "nick": "",
+      "at": "2026-09-29T14:32:03.891Z",
+      "usedBy": "",
+      "usedAt": ""
+    },
+    {
+      "id": "i_4fp083f3x7",
+      "code": "MNY-2X5J-Z5BY",
+      "note": "",
+      "nick": "",
+      "at": "2026-09-29T14:32:03.739Z",
+      "usedBy": "",
+      "usedAt": ""
+    },
+    {
+      "id": "i_wrkoean3x7",
+      "code": "MNY-RZES-SSFQ",
+      "note": "",
+      "nick": "",
+      "at": "2026-09-29T14:32:03.739Z",
+      "usedBy": "",
+      "usedAt": ""
+    },
+    {
+      "id": "i_sbmov8z3x7",
+      "code": "MNY-53G3-XY7E",
+      "note": "",
+      "nick": "",
+      "at": "2026-09-29T14:32:03.739Z",
+      "usedBy": "",
+      "usedAt": ""
+    },
+    {
+      "id": "i_t21llax3x7",
+      "code": "MNY-8QEB-48BB",
+      "note": "",
+      "nick": "",
+      "at": "2026-09-29T14:32:03.739Z",
+      "usedBy": "",
+      "usedAt": ""
+    },
+    {
+      "id": "i_0nnojmt3x7",
+      "code": "MNY-5AFZ-MRT6",
+      "note": "",
+      "nick": "",
+      "at": "2026-09-29T14:32:03.739Z",
+      "usedBy": "",
+      "usedAt": ""
+    },
+    {
+      "id": "i_7iyo0kl3t7",
+      "code": "MNY-WFCE-5YCG",
+      "note": "",
+      "nick": "",
+      "at": "2026-09-29T14:32:03.595Z",
+      "usedBy": "",
+      "usedAt": ""
+    },
+    {
+      "id": "i_7lgsqi23t7",
+      "code": "MNY-6YCS-3JMF",
+      "note": "",
+      "nick": "",
+      "at": "2026-09-29T14:32:03.595Z",
+      "usedBy": "",
+      "usedAt": ""
+    },
+    {
+      "id": "i_pyf2qh43t7",
+      "code": "MNY-L79P-JRDC",
+      "note": "",
+      "nick": "",
+      "at": "2026-09-29T14:32:03.595Z",
+      "usedBy": "",
+      "usedAt": ""
+    },
+    {
+      "id": "i_a8nwdxk3t7",
+      "code": "MNY-PWRU-BDNH",
+      "note": "",
+      "nick": "",
+      "at": "2026-09-29T14:32:03.595Z",
+      "usedBy": "",
+      "usedAt": ""
+    },
+    {
+      "id": "i_i07m3e23t7",
+      "code": "MNY-Y5DL-CLK9",
+      "note": "",
+      "nick": "",
+      "at": "2026-09-29T14:32:03.595Z",
+      "usedBy": "",
+      "usedAt": ""
+    },
+    {
+      "id": "i_lx5lzxc3p7",
+      "code": "MNY-HHHR-BEYA",
+      "note": "",
+      "nick": "",
+      "at": "2026-09-29T14:32:03.451Z",
+      "usedBy": "",
+      "usedAt": ""
+    },
+    {
+      "id": "i_3usdl5t3p7",
+      "code": "MNY-EUDC-L92E",
+      "note": "",
+      "nick": "",
+      "at": "2026-09-29T14:32:03.451Z",
+      "usedBy": "",
+      "usedAt": ""
+    },
+    {
+      "id": "i_qhnlcvt3p7",
+      "code": "MNY-KLZF-JKWV",
+      "note": "",
+      "nick": "",
+      "at": "2026-09-29T14:32:03.451Z",
+      "usedBy": "",
+      "usedAt": ""
+    },
+    {
+      "id": "i_u2cv9883p7",
+      "code": "MNY-CXBZ-RNXV",
+      "note": "",
+      "nick": "",
+      "at": "2026-09-29T14:32:03.451Z",
+      "usedBy": "",
+      "usedAt": ""
+    },
+    {
+      "id": "i_zby0r1e3p7",
+      "code": "MNY-ZGA2-VDEK",
+      "note": "",
+      "nick": "",
+      "at": "2026-09-29T14:32:03.451Z",
+      "usedBy": "",
+      "usedAt": ""
+    },
+    {
+      "id": "i_ln6jdst3lf",
+      "code": "MNY-H927-W3MY",
+      "note": "",
+      "nick": "",
+      "at": "2026-09-29T14:32:03.315Z",
+      "usedBy": "",
+      "usedAt": ""
+    },
+    {
+      "id": "i_cnxza4k3lf",
+      "code": "MNY-D5J7-2ZSY",
+      "note": "",
+      "nick": "",
+      "at": "2026-09-29T14:32:03.315Z",
+      "usedBy": "",
+      "usedAt": ""
+    },
+    {
+      "id": "i_w6dk3ix3lf",
+      "code": "MNY-EH4K-WWK2",
+      "note": "",
+      "nick": "",
+      "at": "2026-09-29T14:32:03.315Z",
+      "usedBy": "",
+      "usedAt": ""
+    },
+    {
+      "id": "i_bqfh15f3lf",
+      "code": "MNY-FDRT-3WG6",
+      "note": "",
+      "nick": "",
+      "at": "2026-09-29T14:32:03.315Z",
+      "usedBy": "",
+      "usedAt": ""
+    },
+    {
+      "id": "i_u371g3c3lf",
+      "code": "MNY-WJTZ-YNMP",
+      "note": "",
+      "nick": "",
+      "at": "2026-09-29T14:32:03.315Z",
+      "usedBy": "",
+      "usedAt": ""
+    },
+    {
+      "id": "i_7kkmwfq3hf",
+      "code": "MNY-W3WP-36WB",
+      "note": "",
+      "nick": "",
+      "at": "2026-09-29T14:32:03.171Z",
+      "usedBy": "",
+      "usedAt": ""
+    },
+    {
+      "id": "i_kbd47nb3hf",
+      "code": "MNY-AWXW-Q349",
+      "note": "",
+      "nick": "",
+      "at": "2026-09-29T14:32:03.171Z",
+      "usedBy": "",
+      "usedAt": ""
+    },
+    {
+      "id": "i_vjqnp5a3hf",
+      "code": "MNY-ZWZV-VMTV",
+      "note": "",
+      "nick": "",
+      "at": "2026-09-29T14:32:03.171Z",
+      "usedBy": "",
+      "usedAt": ""
+    },
+    {
+      "id": "i_6znx7oi3hf",
+      "code": "MNY-FZ4Q-3CV9",
+      "note": "",
+      "nick": "",
+      "at": "2026-09-29T14:32:03.171Z",
+      "usedBy": "",
+      "usedAt": ""
+    },
+    {
+      "id": "i_0j4d4453hf",
+      "code": "MNY-QZFH-37KU",
+      "note": "",
+      "nick": "",
+      "at": "2026-09-29T14:32:03.171Z",
+      "usedBy": "",
+      "usedAt": ""
+    },
+    {
+      "id": "i_dekt2lx3dn",
+      "code": "MNY-TTJ2-TYPV",
+      "note": "",
+      "nick": "",
+      "at": "2026-09-29T14:32:03.035Z",
+      "usedBy": "",
+      "usedAt": ""
+    },
+    {
+      "id": "i_4ytn7923dn",
+      "code": "MNY-75B6-59CR",
+      "note": "",
+      "nick": "",
+      "at": "2026-09-29T14:32:03.035Z",
+      "usedBy": "",
+      "usedAt": ""
+    },
+    {
+      "id": "i_yr75swn3dn",
+      "code": "MNY-5PNJ-LJTK",
+      "note": "",
+      "nick": "",
+      "at": "2026-09-29T14:32:03.035Z",
+      "usedBy": "",
+      "usedAt": ""
+    },
+    {
+      "id": "i_vjc61te3dn",
+      "code": "MNY-7QPC-26RN",
+      "note": "",
+      "nick": "",
+      "at": "2026-09-29T14:32:03.035Z",
+      "usedBy": "",
+      "usedAt": ""
+    },
+    {
+      "id": "i_8n9yd6j3dn",
+      "code": "MNY-EMRM-NGWN",
+      "note": "",
+      "nick": "",
+      "at": "2026-09-29T14:32:03.035Z",
+      "usedBy": "",
+      "usedAt": ""
+    },
+    {
+      "id": "i_qp53bqq39f",
+      "code": "MNY-7GLX-WFXG",
+      "note": "",
+      "nick": "",
+      "at": "2026-09-29T14:32:02.883Z",
+      "usedBy": "",
+      "usedAt": ""
+    },
+    {
+      "id": "i_f6ts0ta39f",
+      "code": "MNY-2458-F429",
+      "note": "",
+      "nick": "",
+      "at": "2026-09-29T14:32:02.883Z",
+      "usedBy": "",
+      "usedAt": ""
+    },
+    {
+      "id": "i_dm4cq5j39f",
+      "code": "MNY-NXAM-ZX5M",
+      "note": "",
+      "nick": "",
+      "at": "2026-09-29T14:32:02.883Z",
+      "usedBy": "",
+      "usedAt": ""
+    },
+    {
+      "id": "i_zbmdibd39f",
+      "code": "MNY-7TCW-86FC",
+      "note": "",
+      "nick": "",
+      "at": "2026-09-29T14:32:02.883Z",
+      "usedBy": "",
+      "usedAt": ""
+    },
+    {
+      "id": "i_cpk41tw39f",
+      "code": "MNY-NF98-BSG5",
+      "note": "",
+      "nick": "",
+      "at": "2026-09-29T14:32:02.883Z",
+      "usedBy": "",
+      "usedAt": ""
+    },
+    {
+      "id": "i_701957s357",
+      "code": "MNY-VRBT-WNDA",
+      "note": "",
+      "nick": "",
+      "at": "2026-09-29T14:32:02.731Z",
+      "usedBy": "",
+      "usedAt": ""
+    },
+    {
+      "id": "i_txbnmaf357",
+      "code": "MNY-8X7A-339B",
+      "note": "",
+      "nick": "",
+      "at": "2026-09-29T14:32:02.731Z",
+      "usedBy": "",
+      "usedAt": ""
+    },
+    {
+      "id": "i_09929tj357",
+      "code": "MNY-MD98-7KJ7",
+      "note": "",
+      "nick": "",
+      "at": "2026-09-29T14:32:02.731Z",
+      "usedBy": "",
+      "usedAt": ""
+    },
+    {
+      "id": "i_q1bxvcd357",
+      "code": "MNY-JJQY-MJKZ",
+      "note": "",
+      "nick": "",
+      "at": "2026-09-29T14:32:02.731Z",
+      "usedBy": "",
+      "usedAt": ""
+    },
+    {
+      "id": "i_kbevdhh357",
+      "code": "MNY-D3G9-N5Q9",
+      "note": "",
+      "nick": "",
+      "at": "2026-09-29T14:32:02.731Z",
+      "usedBy": "",
+      "usedAt": ""
+    },
+    {
+      "id": "i_9h6hs5j30r",
+      "code": "MNY-XU6X-57ZP",
+      "note": "",
+      "nick": "",
+      "at": "2026-09-29T14:32:02.571Z",
+      "usedBy": "",
+      "usedAt": ""
+    },
+    {
+      "id": "i_a3msn8z30r",
+      "code": "MNY-S36H-D4CB",
+      "note": "",
+      "nick": "",
+      "at": "2026-09-29T14:32:02.571Z",
+      "usedBy": "",
+      "usedAt": ""
+    },
+    {
+      "id": "i_hgbktji30r",
+      "code": "MNY-4JDV-WC5R",
+      "note": "",
+      "nick": "",
+      "at": "2026-09-29T14:32:02.571Z",
+      "usedBy": "",
+      "usedAt": ""
+    },
+    {
+      "id": "i_p81qzss30r",
+      "code": "MNY-HWAK-4GRS",
+      "note": "",
+      "nick": "",
+      "at": "2026-09-29T14:32:02.571Z",
+      "usedBy": "",
+      "usedAt": ""
+    },
+    {
+      "id": "i_deyoaiz30r",
+      "code": "MNY-NMWJ-U7VY",
+      "note": "",
+      "nick": "",
+      "at": "2026-09-29T14:32:02.571Z",
+      "usedBy": "",
+      "usedAt": ""
+    },
+    {
+      "id": "i_e9cx05u2wb",
+      "code": "MNY-5FJW-B2RY",
+      "note": "",
+      "nick": "",
+      "at": "2026-09-29T14:32:02.411Z",
+      "usedBy": "",
+      "usedAt": ""
+    },
+    {
+      "id": "i_yoytw7i2wb",
+      "code": "MNY-3BNH-EC5M",
+      "note": "",
+      "nick": "",
+      "at": "2026-09-29T14:32:02.411Z",
+      "usedBy": "",
+      "usedAt": ""
+    },
+    {
+      "id": "i_cmsy6py2wb",
+      "code": "MNY-A2U7-CXC7",
+      "note": "",
+      "nick": "",
+      "at": "2026-09-29T14:32:02.411Z",
+      "usedBy": "",
+      "usedAt": ""
+    },
+    {
+      "id": "i_sf71z9v2wb",
+      "code": "MNY-5NGS-FGQK",
+      "note": "",
+      "nick": "",
+      "at": "2026-09-29T14:32:02.411Z",
+      "usedBy": "",
+      "usedAt": ""
+    },
+    {
+      "id": "i_f108toa2wb",
+      "code": "MNY-J7ZA-5LJ7",
+      "note": "",
+      "nick": "",
+      "at": "2026-09-29T14:32:02.411Z",
+      "usedBy": "",
+      "usedAt": ""
+    },
+    {
+      "id": "i_dobt9na2rf",
+      "code": "MNY-4RTY-PKUK",
+      "note": "",
+      "nick": "",
+      "at": "2026-09-29T14:32:02.235Z",
+      "usedBy": "",
+      "usedAt": ""
+    },
+    {
+      "id": "i_33isbrn2re",
+      "code": "MNY-BNG8-NPTW",
+      "note": "",
+      "nick": "",
+      "at": "2026-09-29T14:32:02.234Z",
+      "usedBy": "",
+      "usedAt": ""
+    },
+    {
+      "id": "i_vph8kjo2re",
+      "code": "MNY-BMZZ-XVB6",
+      "note": "",
+      "nick": "",
+      "at": "2026-09-29T14:32:02.234Z",
+      "usedBy": "",
+      "usedAt": ""
+    },
+    {
+      "id": "i_0cmpvxf2re",
+      "code": "MNY-ZDS8-GK3M",
+      "note": "",
+      "nick": "",
+      "at": "2026-09-29T14:32:02.234Z",
+      "usedBy": "",
+      "usedAt": ""
+    },
+    {
+      "id": "i_532cvj72re",
+      "code": "MNY-U6L6-3LBG",
+      "note": "",
+      "nick": "",
+      "at": "2026-09-29T14:32:02.234Z",
+      "usedBy": "",
+      "usedAt": ""
+    },
+    {
+      "id": "i_jjogpny2ir",
+      "code": "MNY-939Z-FXTU",
+      "note": "",
+      "nick": "",
+      "at": "2026-09-29T14:32:01.923Z",
+      "usedBy": "",
+      "usedAt": ""
+    },
+    {
+      "id": "i_ene03vx2ir",
+      "code": "MNY-NFBC-ZA6C",
+      "note": "",
+      "nick": "",
+      "at": "2026-09-29T14:32:01.923Z",
+      "usedBy": "",
+      "usedAt": ""
+    },
+    {
+      "id": "i_4ejtz3v2ir",
+      "code": "MNY-H9Y9-SJNT",
+      "note": "",
+      "nick": "",
+      "at": "2026-09-29T14:32:01.923Z",
+      "usedBy": "",
+      "usedAt": ""
+    },
+    {
+      "id": "i_nyzgv0u2ir",
+      "code": "MNY-PUE5-AKBM",
+      "note": "",
+      "nick": "",
+      "at": "2026-09-29T14:32:01.923Z",
+      "usedBy": "",
+      "usedAt": ""
+    },
+    {
+      "id": "i_eszw93n2ir",
+      "code": "MNY-JULX-934J",
+      "note": "",
+      "nick": "",
+      "at": "2026-09-29T14:32:01.923Z",
+      "usedBy": "",
+      "usedAt": ""
+    },
+    {
+      "id": "i_j97f7zmt3m",
+      "code": "MNY-LSWY-VFBF",
+      "note": "",
+      "nick": "",
+      "at": "2026-09-29T10:14:26.578Z",
+      "usedBy": "",
+      "usedAt": ""
+    },
+    {
+      "id": "i_sqv2hoet3m",
+      "code": "MNY-AGAX-5EAT",
+      "note": "",
+      "nick": "",
+      "at": "2026-09-29T10:14:26.578Z",
+      "usedBy": "",
+      "usedAt": ""
+    },
+    {
+      "id": "i_a90t93zt3m",
+      "code": "MNY-4DXN-QVVF",
+      "note": "",
+      "nick": "",
+      "at": "2026-09-29T10:14:26.578Z",
+      "usedBy": "",
+      "usedAt": ""
+    },
+    {
+      "id": "i_0m0hyupt3m",
+      "code": "MNY-ACJN-EHA3",
+      "note": "",
+      "nick": "",
+      "at": "2026-09-29T10:14:26.578Z",
+      "usedBy": "",
+      "usedAt": ""
+    },
+    {
+      "id": "i_6qk2avit3m",
+      "code": "MNY-4NAS-P2H5",
+      "note": "",
+      "nick": "",
+      "at": "2026-09-29T10:14:26.578Z",
+      "usedBy": "",
+      "usedAt": ""
+    }
+  ]
+}

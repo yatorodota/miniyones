@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ЛИЧНЫЙ КАБИНЕТ // МИНЬОНЫ</title>
+<meta name="description" content="Личный кабинет игрока клана МИНЬОНЫ: регистрация, публикация работ, звёзды и ранг.">
+<link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Unbounded:wght@700;800;900&family=JetBrains+Mono:wght@400;500;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/style.css">
+<link rel="stylesheet" href="assets/css/account.css">
+</head>
+<body>
+
+<div class="statusbar">
+  <span><i class="dot"></i>АККАУНТ ИГРОКА</span>
+  <span>НАБОР <b id="sbStatus">ОТКРЫТ</b></span>
+  <span class="right">
+    <span id="sbClock">00:00:00</span>
+  </span>
+</div>
+
+<nav class="nav">
+  <div class="container nav__inner">
+    <a class="brand" href="index.html">
+      <span class="brand__mark"></span>
+      <span class="brand__text"><b>МИНЬОНЫ</b><span>UNIT // MNY</span></span>
+    </a>
+    <div class="nav__links">
+      <a href="index.html">Главная</a>
+      <a href="index.html#about">О клане</a>
+      <a href="index.html#members">Участники</a>
+      <a href="index.html#rules">Правила</a>
+      <a href="index.html#skills">Навыки</a>
+      <a href="index.html#join">Контакты</a>
+    </div>
+    <a href="index.html#join" class="btn btn--sm nav__cta"><span>Оставить заявку</span></a>
+    <button class="burger" id="burger" aria-label="Меню" aria-expanded="false"><i></i></button>
+  </div>
+  <div class="nav__menu" id="navMenu">
+    <a href="index.html">Главная</a>
+    <a href="index.html#about">О клане</a>
+    <a href="index.html#members">Участники</a>
+    <a href="index.html#rules">Правила</a>
+    <a href="index.html#skills">Навыки</a>
+    <a href="index.html#join">Контакты</a>
+    <a href="index.html#join" class="btn"><span>Оставить заявку</span></a>
+  </div>
+</nav>
+
+<main>
+<div class="container page">
+
+  <div class="page__head">
+    <p class="meta">АККАУНТ // ИГРОКА</p>
+    <h1 class="page__title display">Личный кабинет</h1>
+    <p class="lead">Свой ник и пароль, публикация скринов работ и звёзды за принятые правки. Звёзды решают ранг в городе.</p>
+  </div>
+
+  <p class="notice" id="localNotice" hidden>
+    <b>ВАЖНО.</b> Сейчас аккаунты и публикации хранятся только в этом браузере — это демо-режим.
+    Чтобы регистрация и канал работали для всех игроков с разных устройств, нужен бесплатный бэкенд (Supabase).
+    Инструкция — в <b>README.md</b>, раздел «Аккаунты и звёзды».
+  </p>
+
+  <!-- ===== ГОСТЬ ===== -->
+  <div id="guestView">
+    <div class="page__cols">
+      <div class="panel">
+        <h2 class="panel__title">Вход и регистрация <span>ACCESS // 01</span></h2>
+        <div class="tabs" id="authTabs">
+          <button type="button" data-tab="login" class="is-on">Вход</button>
+          <button type="button" data-tab="reg">Регистрация</button>
+        </div>
+        <div id="authMsg"></div>
+        <form id="authForm" autocomplete="off">
+          <label class="field">
+            <span>Ник игрока</span>
+            <input class="input" type="text" id="authNick" autocomplete="username" placeholder="ALEKSY" maxlength="16" autocapitalize="off" autocorrect="off" spellcheck="false">
+          </label>
+          <label class="field">
+            <span>Пароль</span>
+            <input class="input" type="password" id="authPass" autocomplete="current-password" placeholder="••••••" maxlength="64">
+          </label>
+          <div id="regExtra" hidden>
+            <label class="field">
+              <span>Ник в Discord</span>
+              <input class="input" type="text" id="authDiscord" placeholder="твой ник в Discord" maxlength="32" autocapitalize="off" autocorrect="off" spellcheck="false" autocomplete="off">
+            </label>
+            <label class="field">
+              <span>Код приглашения</span>
+              <input class="input input--code" type="text" id="authCode" placeholder="MNY-XXXX-XXXX" maxlength="14" autocomplete="off" autocapitalize="characters" autocorrect="off" spellcheck="false">
+            </label>
+            <p class="hint" id="codesOnSite">ПРОВЕРКА КОДОВ…</p>
+            <p class="hint">Код выдаёт глава клана. Регистрация вводит его один раз — код сгорает после первого аккаунта.</p>
+          </div>
+          <button class="btn btn--block" type="submit" id="authSubmit"><span>Войти</span></button>
+          <p class="hint" id="authHint">Ник: латиница, цифры, _ и -. Пароль от 4 символов.</p>
+          <p class="hint" id="guardHint" hidden></p>
+        </form>
+      </div>
+
+      <div>
+        <div class="panel">
+          <h2 class="panel__title">Как это работает <span>RULES // 03</span></h2>
+          <p class="lead" style="font-size:15px;margin-bottom:14px">
+            1. Регистрируешься под своим игровым ником и паролем.<br>
+            2. В канале публикаций кидаешь скрин своей работы и коротко описываешь, что сделал.<br>
+            3. Если правку засчитывают — тебе падает <b>+1 звезда</b> в профиль.<br>
+            4. Звёзды поднимают ранг в городе: Новичок → Житель → Строитель → Мастер → Легенда.
+          </p>
+        </div>
+        <div class="panel">
+          <h2 class="panel__title">Рейтинг города <span>CITY // <i id="cityCountA">0</i></span></h2>
+          <div class="rank js-rank"></div>
+          <p class="empty" style="margin-top:14px" id="cityEmptyA" hidden>АККАУНТОВ ПОКА НЕТ</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== ПОЛЬЗОВАТЕЛЬ ===== -->
+  <div id="userView" hidden>
+    <div class="page__cols">
+      <div>
+        <div class="panel">
+          <h2 class="panel__title">Профиль <span>PROFILE // 02</span></h2>
+          <div class="profile">
+            <div class="profile__ava" id="pAva"></div>
+            <div>
+              <div class="profile__nick" id="pNick">—</div>
+              <div class="profile__row">
+                <span class="badge" id="pTier">—</span>
+                <span class="badge" id="pPlace">МЕСТО // —</span>
+              </div>
+              <div class="stars" id="pStars"></div>
+              <div class="profile__ds">DISCORD // <b id="pDiscord">—</b></div>
+            </div>
+          </div>
+          <div class="profile__bar"><i id="pBar" style="width:0"></i></div>
+          <p class="hint" id="pNext"></p>
+          <button class="btn btn--ghost btn--sm" id="logoutBtn" type="button"><span>Выйти</span></button>
+        </div>
+
+        <div class="panel" id="publish">
+          <h2 class="panel__title">Новая публикация <span>POST // 04</span></h2>
+          <p class="hint hint--lead">Сюда игроки отправляют свои постройки и проекты. Публикацию проверяет глава клана: если засчитают, придёт +1 звезда.</p>
+          <div id="postMsg"></div>
+          <form id="postForm" autocomplete="off">
+            <label class="field">
+              <span>Заголовок</span>
+              <input class="input" type="text" id="pTitle" placeholder="ДОМ НА СКЛОНЕ — ПЕРВАЯ ТЕРРАСА" maxlength="80">
+            </label>
+            <label class="field">
+              <span>Что сделал</span>
+              <textarea class="input" id="pText" placeholder="Что построил или переделал, из чего, сколько блоков, для чего." maxlength="600"></textarea>
+            </label>
+            <label class="field">
+              <span>Скрин работы</span>
+              <input class="input" type="file" id="pImage" accept="image/*">
+            </label>
+            <div class="preview" id="pPreview" hidden><img id="pPreviewImg" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" alt="Предпросмотр скрина"></div>
+            <button class="btn btn--block" type="submit" id="pSubmit"><span>Отправить на проверку</span></button>
+            <p class="hint">Скрин уменьшается и сжимается в браузере. Публикацию проверяет глава клана — если засчитают, придёт +1 звезда.</p>
+          </form>
+        </div>
+      </div>
+
+      <div>
+        <div class="panel">
+          <h2 class="panel__title">Мои публикации <span>MY POSTS // <i id="myCount">0</i></span></h2>
+          <div class="posts" id="myPosts"></div>
+          <p class="empty" id="myEmpty" hidden>ПУБЛИКАЦИЙ ПОКА НЕТ</p>
+        </div>
+        <div class="panel">
+          <h2 class="panel__title">Рейтинг города <span>CITY // <i id="cityCountB">0</i></span></h2>
+          <div class="rank js-rank"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+</main>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer__top">
+      <span class="meta">МИНЬОНЫ // UNIT MNY // EST. 2025</span>
+      <div class="footer__links">
+        <a href="index.html">Главная</a>
+        <a href="index.html#members">Участники</a>
+        <a href="index.html#rules">Правила</a>
+        <a href="index.html#join">Контакты</a>
+        <a href="admin.html">Панель</a>
+      </div>
+    </div>
+    <div class="footer__bot">
+      <span class="meta">VANILLA MINECRAFT CLAN</span>
+      <span class="meta">САЙТ НЕ ЯВЛЯЕТСЯ ОФИЦИАЛЬНЫМ ПРОДУКТОТ MOJANG</span>
+    </div>
+  </div>
+</footer>
+
+<div class="toast" id="toast"></div>
+
+<script src="assets/js/config.js"></script>
+<script src="assets/js/store.js"></script>
+<script src="assets/js/minty.js"></script>
+<script>
+(function () {
+  "use strict";
+  var M = window.Minty;
+  var $ = function (s) { return document.querySelector(s); };
+  var $$ = function (s) { return Array.prototype.slice.call(document.querySelectorAll(s)); };
+
+  /* часы + бургер (те же, что на главной) */
+  (function clock() {
+    var el = $("#sbClock");
+    function pad(n) { return (n < 10 ? "0" : "") + n; }
+    if (el) (function tick() {
+      var d = new Date();
+      el.textContent = pad(d.getUTCHours()) + ":" + pad(d.getUTCMinutes()) + ":" + pad(d.getUTCSeconds());
+      setTimeout(tick, 1000);
+  })();
+  /* Шапка: статус набора берём из настроек клана. */
+  (function statusbar() {
+    var st = $("#sbStatus");
+    var labels = { open: "ОТКРЫТ", request: "ПО ЗАЯВКЕ", closed: "ЗАКРЫТ" };
+    function fill() {
+      var cfg = null;
+      try { cfg = window.ClanStore.load().config || {}; } catch (e) { cfg = null; }
+      if (st) st.textContent = labels[cfg && cfg.recruitment] || "ПО ЗАЯВКЕ";
+    }
+    fill();
+  })();
+  })();
+  var burger = $("#burger"), menu = $("#navMenu");
+  if (burger && menu) burger.addEventListener("click", function () {
+    var open = menu.classList.toggle("is-open");
+    burger.classList.toggle("is-open", open);
+    burger.setAttribute("aria-expanded", open ? "true" : "false");
+  });
+
+  function toast(msg) {
+    var t = $("#toast");
+    t.textContent = msg;
+    t.classList.add("is-on");
+    setTimeout(function () { t.classList.remove("is-on"); }, 2400);
+  }
+
+  function timeAgo(iso) {
+    var d = Math.max(0, (Date.now() - new Date(iso).getTime()) / 1000);
+    if (d < 60) return "только что";
+    if (d < 3600) return Math.floor(d / 60) + " мин назад";
+    if (d < 86400) return Math.floor(d / 3600) + " ч назад";
+    return Math.floor(d / 86400) + " дн назад";
+  }
+
+  var STATUS = {
+    pending: { text: "НА ПРОВЕРКЕ", cls: "tag--wait" },
+    approved: { text: "ЗАСЧИТАНО +1★", cls: "tag--ok" },
+    rejected: { text: "НЕ ЗАСЧИТАНО", cls: "tag--no" }
+  };
+
+  function postCard(p, showStar) {
+    var st = STATUS[p.status] || STATUS.pending;
+    var img = p.image
+      ? '<img class="post__img" src="' + p.image + '" alt="Скрин работы: ' + M.esc(p.title) + '">'
+      : '<div class="post__img" style="display:grid;place-items:center;color:var(--txt-3);font-family:var(--mono);font-size:10px;letter-spacing:.2em">БЕЗ СКРИНА</div>';
+    return '<article class="post">' + img +
+      '<div class="post__body">' +
+        '<div class="post__head"><span class="post__nick">' + M.esc(p.nick) + '</span>' +
+          (showStar ? '<span class="badge">' + M.starStr(p.stars || 0) + '</span>' : '') +
+          '<span class="meta" style="margin-left:auto">' + timeAgo(p.created) + '</span></div>' +
+        '<h3 class="post__title">' + M.esc(p.title) + '</h3>' +
+        '<p class="post__text">' + M.esc(p.text) + '</p>' +
+        '<div class="post__foot"><span class="tag ' + st.cls + '">' + st.text + '</span></div>' +
+      '</div></article>';
+  }
+
+
+  /* ===== АВТОРИЗАЦИЯ ===== */
+  var mode = "login";
+
+  function renderGuardHint() {
+    var g = M.guardInfo();
+    var el = $("#guardHint");
+    if (mode !== "reg") { el.hidden = true; return; }
+    var parts = ["регистрация только по коду", "свободных кодов у главы: " + g.codes.free];
+    if (g.codeLock > 0) parts.push("пауза после неверных кодов: " + M.fmtWait(g.codeLock));
+    el.hidden = false;
+    el.textContent = "ЗАЩИТА: " + parts.join(" · ") + ".";
+  }
+
+  function renderCodesOnSite() {
+    var el = $("#codesOnSite");
+    if (!el || !M.fetchFileCodes) return;
+    el.textContent = "ПРОВЕРКА КОДОВ…";
+    el.classList.remove("is-bad", "is-ok");
+    M.fetchFileCodes().then(function (r) {
+      if (!r || !r.ok) {
+        el.textContent = "КОДЫ: " + (r && r.error ? r.error : "не удалось прочитать") + " — напиши главе";
+        el.classList.add("is-bad");
+        return;
+      }
+      if (!r.file.length) {
+        el.textContent = "КОДОВ НА САЙТЕ: 0 — коды не загружены, напиши главе клана";
+        el.classList.add("is-bad");
+        return;
+      }
+      var free = r.file.filter(function (c) { return !c.usedBy; }).length;
+      el.textContent = "КОДОВ НА САЙТЕ: " + r.file.length + " // СВОБОДНЫХ: " + free;
+      el.classList.add("is-ok");
+    });
+  }
+
+  function setMode(next) {
+    mode = next;
+    $$("#authTabs button").forEach(function (x) { x.classList.toggle("is-on", x.dataset.tab === next); });
+    $("#authSubmit span").textContent = next === "reg" ? "Создать аккаунт" : "Войти";
+    $("#regExtra").hidden = next !== "reg";
+    $("#authHint").textContent = next === "reg"
+      ? "Ник: латиница, цифры, _ и -. Ник в Discord обязателен. Пароль от 4 символов."
+      : "Введите ник и пароль, которые задали при регистрации.";
+    $("#authMsg").innerHTML = "";
+    if (next === "reg") { renderGuardHint(); renderCodesOnSite(); }
+  }
+
+  $$("#authTabs button").forEach(function (b) {
+    b.addEventListener("click", function () { setMode(b.dataset.tab); });
+  });
+
+  $("#authCode").addEventListener("input", function () {
+    var pos = this.selectionStart - 4;
+    this.value = M.normCode(this.value).slice(0, 14);
+    if (pos > 0) this.setSelectionRange(Math.max(4, pos), Math.max(4, pos));
+  });
+
+  $("#authForm").addEventListener("submit", function (e) {
+    e.preventDefault();
+    var nick = $("#authNick").value.trim();
+    var pass = $("#authPass").value;
+    var box = $("#authMsg");
+    if (mode === "reg") {
+      var ds = $("#authDiscord").value.trim();
+      if (!ds) {
+        box.innerHTML = '<div class="msg">Укажи свой ник в Discord</div>';
+        $("#authDiscord").focus();
+        return;
+      }
+      M.register(nick, pass, { code: $("#authCode").value, discord: ds }).then(function (r) {
+        if (!r.ok) {
+          box.innerHTML = '<div class="msg">' + M.esc(r.error) + '</div>';
+          renderGuardHint();
+          return;
+        }
+        box.innerHTML = "";
+        $("#authCode").value = "";
+        $("#authDiscord").value = "";
+        toast("АККАУНТ СОЗДАН");
+        render();
+      });
+    } else {
+      M.login(nick, pass).then(function (r) {
+        if (!r.ok) { box.innerHTML = '<div class="msg">' + M.esc(r.error) + '</div>'; return; }
+        box.innerHTML = "";
+        toast("ВЫ ВОШЛИ");
+        render();
+      });
+    }
+  });
+
+  $("#logoutBtn").addEventListener("click", function () {
+    M.logout();
+    toast("ВЫ ВЫШЛИ");
+    render();
+  });
+
+  /* ===== ПУБЛИКАЦИЯ ===== */
+  var BLANK = "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7";
+  var imgData = "";
+  $("#pImage").addEventListener("change", function () {
+    var file = this.files && this.files[0];
+    var box = $("#postMsg");
+    if (!file) { imgData = ""; $("#pPreviewImg").src = BLANK; $("#pPreview").hidden = true; return; }
+    box.innerHTML = '<div class="msg">ОБРАБОТКА СКРИНА…</div>';
+    M.shrinkImage(file).then(function (data) {
+      imgData = data;
+      $("#pPreviewImg").src = data;
+      $("#pPreview").hidden = !data;
+      box.innerHTML = '';
+    }, function (err) {
+      imgData = "";
+      $("#pPreviewImg").src = BLANK;
+      $("#pPreview").hidden = true;
+      box.innerHTML = '<div class="msg">' + M.esc(err.message) + '</div>';
+    });
+  });
+
+  $("#postForm").addEventListener("submit", function (e) {
+    e.preventDefault();
+    var me = M.me();
+    if (!me) { toast("НУЖЕН ВХОД"); return; }
+    var r = M.submit(me, { title: $("#pTitle").value, text: $("#pText").value, image: imgData });
+    if (!r.ok) { $("#postMsg").innerHTML = '<div class="msg">' + M.esc(r.error) + '</div>'; return; }
+    $("#postForm").reset();
+    $("#pPreviewImg").src = BLANK;
+    $("#pPreview").hidden = true;
+    imgData = "";
+    $("#postMsg").innerHTML = '<div class="msg msg--ok">ОТПРАВЛЕНО НА ПРОВЕРКУ</div>';
+    toast("ОТПРАВЛЕНО");
+    render();
+  });
+
+  /* ===== РЕНДЕР ===== */
+  function renderRank() {
+    var board = M.leaderboard();
+    var me = M.me();
+    var html = '<div class="rank__row rank__row--head"><span>#</span><span>Ник</span><span>Звёзды</span><span>Ранг в городе</span><span>Вход</span></div>';
+    board.forEach(function (u) {
+      var d = u.joined ? Math.max(0, Math.floor((Date.now() - new Date(u.joined).getTime()) / 86400000)) : 0;
+      html += '<div class="rank__row' + (me && me.id === u.id ? " is-me" : "") + '">' +
+        '<span class="rank__place">' + u.place + '</span>' +
+        '<span class="rank__nick">' + M.esc(u.nick) + (u.banned ? '<i class="lock-mark" title="заблокирован">×</i>' : "") + '</span>' +
+        '<span class="rank__stars">' + M.starStr(u.stars) + '</span>' +
+        '<span class="rank__tier"><b>' + u.tier.name + '</b><i>' + u.tier.note + '</i></span>' +
+        '<span class="rank__me">' + d + " дн</span></div>";
+    });
+    $$(".js-rank").forEach(function (el) { el.innerHTML = html; });
+    ["#cityCountA", "#cityCountB"].forEach(function (s) { var e = $(s); if (e) e.textContent = board.length; });
+    $("#cityEmptyA").hidden = board.length > 0;
+  }
+
+  function renderProfile(me) {
+    $("#pAva").textContent = (me.nick[0] || "?").toUpperCase();
+    $("#pAva").style.display = "grid";
+    $("#pAva").style.placeItems = "center";
+    $("#pAva").style.fontFamily = "var(--pixel)";
+    $("#pAva").style.fontSize = "26px";
+    $("#pNick").textContent = me.nick;
+    var ds = $("#pDiscord");
+    if (ds) {
+      ds.textContent = me.ds || "не указан";
+      ds.classList.toggle("is-empty", !me.ds);
+    }
+    $("#pTier").textContent = me.tier.name;
+    $("#pTier").className = "badge" + (me.tier.min >= 10 ? " badge--top" : "");
+    $("#pPlace").textContent = me.place > 0 ? "МЕСТО // " + me.place : "МЕСТО // —";
+    $("#pStars").textContent = M.starStr(me.stars) + "  " + me.stars + " ЗВЁЗД";
+    if (me.next) {
+      var need = me.next.min - me.stars;
+      var prev = me.tier.min;
+      var pct = Math.max(4, Math.round((me.stars - prev) / (me.next.min - prev) * 100));
+      $("#pBar").style.width = pct + "%";
+      $("#pNext").textContent = "ДО «" + me.next.name + "» ОСТАЛОСЬ " + need + " " + plural(need, "ЗВЕЗДА", "ЗВЕЗДЫ", "ЗВЁЗД");
+    } else {
+      $("#pBar").style.width = "100%";
+      $("#pNext").textContent = "ВЫСШИЙ РАНГ В ГОРОДЕ. ЛЕГЕНДА.";
+    }
+  }
+
+  function plural(n, one, few, many) {
+    n = Math.abs(n) % 100;
+    var n1 = n % 10;
+    if (n > 10 && n < 20) return many;
+    if (n1 > 1 && n1 < 5) return few;
+    if (n1 === 1) return one;
+    return many;
+  }
+
+  function renderMy(me) {
+    var list = M.myPosts(me);
+    var html = "";
+    list.forEach(function (p) {
+      p.stars = M.me() ? M.me().stars : 0;
+      html += postCard(p, false);
+    });
+    $("#myPosts").innerHTML = html;
+    $("#myEmpty").hidden = list.length > 0;
+    $("#myCount").textContent = list.length;
+  }
+
+  function render() {
+    var me = M.me();
+    $("#guestView").hidden = !!me;
+    $("#userView").hidden = !me;
+    $("#localNotice").hidden = !!window.MINTY_REMOTE;
+    if (me) { renderProfile(me); renderMy(me); }
+    renderRank();
+    renderGuardHint();
+  }
+
+  M.onChange(render);
+  render();
+
+  /* Если пришли по ссылке «Публикации» — сразу показываем форму, даже до входа. */
+  if (location.hash === "#publish") {
+    var toPost = function () {
+      var el = $("#publish");
+      if (!el) return;
+      el.scrollIntoView({ behavior: "smooth", block: "start" });
+      var input = $("#pTitle");
+      if (input && !M.me()) { input.setAttribute("data-attn", ""); }
+    };
+    setTimeout(toPost, 60);
+    window.addEventListener("hashchange", toPost);
+  }
+})();
+</script>
+</body>
+</html>

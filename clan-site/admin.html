@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CONTROL // Панель управления</title>
+<meta name="robots" content="noindex">
+<meta name="theme-color" content="#050607">
+<link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+<link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@700;800;900&family=JetBrains+Mono:wght@400;500;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/style.css">
+<link rel="stylesheet" href="assets/css/admin.css">
+</head>
+<body class="admin-body">
+
+<div class="backdrop" aria-hidden="true"></div>
+<div class="hud-frame" aria-hidden="true"><span></span><span></span><span></span><span></span></div>
+
+<div class="admin-wrap">
+
+  <header class="admin-head">
+    <div class="admin-head__title">
+      <span class="meta">SYSTEM // CONTROL PANEL</span>
+      <h1>Управление кланом</h1>
+    </div>
+    <div class="admin-head__actions">
+      <span class="saved" id="savedFlag">СОХРАНЕНО</span>
+      <a class="btn btn--sm btn--ghost" href="index.html"><span>На сайт</span></a>
+      <button class="btn btn--sm btn--link" id="lockBtn" type="button">Заблокировать</button>
+    </div>
+  </header>
+
+  <div class="gate" id="gate" hidden>
+    <form class="gate__box" id="gateForm">
+      <span class="meta">RESTRICTED ACCESS</span>
+      <h2>Введите код</h2>
+      <p class="muted">Панель защищена локальным кодом доступа.</p>
+      <input class="field__input" type="password" id="gateInput" placeholder="КОД" autocomplete="current-password">
+      <button class="btn" type="submit"><span>Открыть панель</span></button>
+      <p class="gate__error" id="gateError" hidden>НЕВЕРНЫЙ КОД</p>
+      <p class="muted small"><a href="index.html">← Вернуться на сайт</a></p>
+    </form>
+  </div>
+
+  <nav class="tabs" id="tabs" hidden>
+    <button class="tab is-active" data-tab="members">Участники</button>
+    <button class="tab" data-tab="settings">Настройки</button>
+<button class="tab" data-tab="ranks">Ранги</button>
+    <button class="tab" data-tab="posts">Публикации</button>
+    <button class="tab" data-tab="players">Игроки</button>
+    <button class="tab" data-tab="codes">Коды</button>
+    <button class="tab" data-tab="data">Данные</button>
+  </nav>
+
+  <main id="panels" hidden>
+
+    <!-- MEMBERS -->
+    <section class="panel is-active" data-panel="members">
+      <div class="grid-2">
+        <form class="card" id="memberForm">
+          <h2 id="memberFormTitle">Добавить участника</h2>
+          <input type="hidden" id="mId">
+          <div class="field">
+            <label for="mNick">Ник в Minecraft *</label>
+            <input class="field__input" id="mNick" required placeholder="Steve" maxlength="32">
+          </div>
+          <div class="field">
+            <label for="mReal">Настоящее имя (необязательно)</label>
+            <input class="field__input" id="mReal" placeholder="Иван" maxlength="64">
+          </div>
+          <div class="field-row">
+            <div class="field">
+              <label for="mRank">Ранг</label>
+              <select class="field__input" id="mRank"></select>
+            </div>
+            <div class="field">
+              <label for="mStatus">Статус</label>
+              <select class="field__input" id="mStatus">
+                <option value="game">В игре</option>
+                <option value="splash">Отдыхает</option>
+                <option value="offline">Вне игры</option>
+              </select>
+            </div>
+          </div>
+          <div class="field">
+            <label for="mJoined">Дата вступления</label>
+            <input class="field__input" id="mJoined" type="date">
+          </div>
+          <div class="field">
+            <label for="mNote">Заметка (видна в карточке)</label>
+            <input class="field__input" id="mNote" placeholder="Строитель баз" maxlength="120">
+          </div>
+          <div class="form-actions">
+            <button class="btn btn--sm" type="submit" id="mSubmit"><span>Добавить</span></button>
+            <button class="btn btn--sm btn--ghost" type="button" id="mCancel" hidden><span>Отмена</span></button>
+          </div>
+        </form>
+
+        <div class="card">
+          <h2>Участники <span class="counter" id="membersCount">0</span></h2>
+          <input class="field__input" id="mFilter" placeholder="ФИЛЬТР ПО НИКУ ИЛИ РАНГУ...">
+          <ul class="list" id="membersList"></ul>
+          <p class="empty" id="mEmpty" hidden>СПИСОК ПУСТ</p>
+        </div>
+      </div>
+
+      <div class="card">
+        <h2>Массовое добавление</h2>
+        <p class="muted small">Строка = <code>Ник | ранг | дата (ГГГГ-ММ-ДД) | заметка</code></p>
+        <textarea class="field__input" id="bulkInput" rows="6" placeholder="Steve | member | 2024-01-15&#10;Alex | builder | 2024-03-02&#10;Herobrine | Новичок |"></textarea>
+        <div class="form-actions">
+          <button class="btn btn--sm" type="button" id="bulkAdd"><span>Добавить всех</span></button>
+        </div>
+      </div>
+    </div>
+    </section>
+
+    <!-- SETTINGS -->
+    <section class="panel" data-panel="settings">
+      <form class="card" id="settingsForm">
+        <h2>Основное</h2>
+        <div class="field-row">
+          <div class="field"><label for="cClanName">Название клана</label><input class="field__input" id="cClanName"></div>
+          <div class="field"><label for="cTag">Тег</label><input class="field__input" id="cTag" placeholder="NR"></div>
+        </div>
+        <div class="field"><label for="cMotto">Девиз</label><input class="field__input" id="cMotto"></div>
+        <div class="field"><label for="cDescription">Описание</label><textarea class="field__input" id="cDescription" rows="3"></textarea></div>
+        <div class="field"><label for="cFounded">Год основания</label><input class="field__input" id="cFounded" inputmode="numeric"></div>
+
+        <h2>Hero-блок</h2>
+        <div class="field-row">
+          <div class="field"><label for="cHeroTitleTop">Заголовок (верх)</label><input class="field__input" id="cHeroTitleTop"></div>
+          <div class="field"><label for="cHeroTitleBottom">Заголовок (низ)</label><input class="field__input" id="cHeroTitleBottom"></div>
+        </div>
+        <div class="field">
+          <label for="cHeroImage">Изображение лидера (ссылка на файл или картинку)</label>
+          <input class="field__input" id="cHeroImage" placeholder="assets/img/hero.svg">
+          <p class="muted small">Картинка автоматически переводится в ч/б и растворяется в фоне. Формат: 3:4, портрет по центру или справа.</p>
+        </div>
+        <div class="field-row">
+          <div class="field"><label for="cHeroCaption">Техническая подпись</label><input class="field__input" id="cHeroCaption"></div>
+          <div class="field"><label for="cHeroSubtitle">Подзаголовок</label><input class="field__input" id="cHeroSubtitle"></div>
+        </div>
+
+        <h2>Набор</h2>
+        <div class="field">
+          <label for="cRecruitment">Статус набора</label>
+          <select class="field__input" id="cRecruitment">
+            <option value="open">Открыт</option>
+            <option value="request">Открыт по заявке</option>
+            <option value="closed">Закрыт</option>
+          </select>
+        </div>
+        <div class="field"><label for="cRecruitmentText">Текст о наборе</label><input class="field__input" id="cRecruitmentText"></div>
+
+        <h2>Ссылки</h2>
+        <p class="field__note">Ссылка на Discord. Клан держит связь только через него — заявки и общение там.</p>
+        <div class="field"><label for="cDiscord">Ссылка-приглашение Discord</label><input class="field__input" id="cDiscord" type="url" placeholder="https://discord.gg/..."></div>
+        <div class="field"><label for="cDonate">Донат</label><input class="field__input" id="cDonate" type="url"></div>
+
+        <h2>Статистика</h2>
+        <div class="field-row">
+          <div class="field"><label for="cSeasons">Сезонов</label><input class="field__input" id="cSeasons" inputmode="numeric"></div>
+          <div class="field"><label for="cProjects">Проектов</label><input class="field__input" id="cProjects" inputmode="numeric"></div>
+        </div>
+        <div class="field-row">
+          <div class="field"><label for="cGoals">Общих целей</label><input class="field__input" id="cGoals" inputmode="numeric"></div>
+          <div class="field"><label for="cBases">Количество баз</label><input class="field__input" id="cBases" inputmode="numeric"></div>
+        </div>
+
+
+        <h2>Навыки</h2>
+        <div class="field">
+          <label for="cSkills">Список навыков</label>
+          <textarea class="field__input" id="cSkills" rows="6" placeholder="Название | описание"></textarea>
+          <p class="muted small">По одному навыку в строке, формат: <b>Название | описание</b>. Названия выводятся в блок «Навыки» на главной.</p>
+        </div>
+
+        <h2>Блоки сайта</h2>
+        <div class="checks">
+          <label class="check"><input type="checkbox" id="cShowStats"> Статистика</label>
+          <label class="check"><input type="checkbox" id="cShowAccess"> Блок «Связь // Discord»</label>
+          <label class="check"><input type="checkbox" id="cShowSkills"> Навыки</label>
+          <label class="check"><input type="checkbox" id="cShowRecruitment"> Блок «Вступить»</label>
+        </div>
+
+        <div class="form-actions">
+          <button class="btn btn--sm" type="submit"><span>Сохранить настройки</span></button>
+        </div>
+      </form>
+    </section>
+
+    <!-- RANKS -->
+    <section class="panel" data-panel="ranks">
+      <form class="card" id="rankForm">
+        <h2>Добавить ранг</h2>
+        <input type="hidden" id="rId">
+        <div class="field-row three">
+          <div class="field"><label for="rName">Название</label><input class="field__input" id="rName" required placeholder="Архитектор"></div>
+          <div class="field"><label for="rColor">Цвет</label><input class="field__input" id="rColor" type="color" value="#454b52"></div>
+          <div class="field"><label for="rOrder">Вес (порядок)</label><input class="field__input" id="rOrder" type="number" value="10" min="1" max="99"></div>
+        </div>
+        <div class="form-actions">
+          <button class="btn btn--sm" type="submit" id="rSubmit"><span>Добавить</span></button>
+          <button class="btn btn--sm btn--ghost" type="button" id="rCancel" hidden><span>Отмена</span></button>
+        </div>
+      </form>
+      <div class="card">
+        <h2>Ранги <span class="counter" id="ranksCount">0</span></h2>
+        <ul class="list" id="ranksList"></ul>
+      </div>
+    </section>
+
+    <!-- POSTS -->
+    <section class="panel" data-panel="posts">
+      <div class="card">
+        <h2>Канал публикаций <span class="muted small" id="postsStat">0</span></h2>
+        <p class="muted small">Скрин работы и описание от игроков. Нажмите «Засчитать» — игрок получит <code>+1 звезду</code> и поднимется в рейтинге города. Учтите: пока нет бэкенда, заявки и аккаунты видны только в этом браузере.</p>
+        <div id="postsList" class="posts-admin"></div>
+        <p class="muted small" id="postsEmpty" hidden>Заявок пока нет.</p>
+      </div>
+
+      <div class="card">
+        <h2>Игроки и звёзды</h2>
+        <p class="muted small">Ранги в городе считаются автоматически по звёздам.</p>
+        <div id="usersList" class="posts-admin"></div>
+        <p class="muted small" id="usersEmpty" hidden>Аккаунтов пока нет.</p>
+      </div>
+    </section>
+
+    <!-- PLAYERS -->
+    <section class="panel" data-panel="players">
+      <div class="card">
+        <h2>Аккаунты игроков <span class="counter" id="playersCount">0</span></h2>
+        <p class="muted small" id="playersStat">ВСЕГО: 0 // В БАНЕ: 0</p>
+        <p class="muted small">Здесь глава управляет аккаунтами игроков: роль, звёзды, ник, пароль, бан, удаление. Пока нет бэкенда, панель видит только аккаунты, зарегистрированные <b>в этом браузере</b> — у игрока на своём устройстве они свои.</p>
+        <div class="field-row three">
+          <div class="field">
+            <label for="pFilter">Поиск</label>
+            <input class="field__input" id="pFilter" placeholder="НИК ИЛИ РОЛЬ...">
+          </div>
+          <div class="field">
+            <label for="pRole">Только роль</label>
+            <select class="field__input" id="pRole"><option value="">Любая роль</option></select>
+          </div>
+          <div class="field">
+            <label for="pSort">Сортировка</label>
+            <select class="field__input" id="pSort">
+              <option value="stars">По звёздам</option>
+              <option value="joined">По дате входа</option>
+              <option value="nick">По нику</option>
+              <option value="seen">По активности</option>
+            </select>
+          </div>
+        </div>
+        <div id="playersList" class="players"></div>
+        <p class="muted small" id="playersEmpty" hidden>Аккаунтов пока нет. Игроки появятся здесь после регистрации по коду.</p>
+      </div>
+
+      <div class="card">
+        <h2>Массовые действия</h2>
+        <p class="muted small">Действие применяется ко всем аккаунтам сразу. Будьте внимательны — отменить массовое действие нельзя.</p>
+        <div class="field-row three">
+          <div class="field">
+            <label for="bulkRole">Выдать роль</label>
+            <select class="field__input" id="bulkRole"></select>
+          </div>
+          <div class="field">
+            <label for="bulkStars">Звёзд</label>
+            <input class="field__input" id="bulkStars" type="number" step="1" value="0">
+          </div>
+          <div class="field">
+            <label>&nbsp;</label>
+            <button class="btn btn--sm" type="button" id="bulkApply"><span>Применить</span></button>
+          </div>
+        </div>
+        <p class="muted small" id="bulkLog"></p>
+      </div>
+    </section>
+
+    <!-- CODES -->
+    <section class="panel" data-panel="codes">
+      <div class="card">
+        <h2>Коды приглашения <span class="counter" id="codesStat">0</span></h2>
+        <p class="muted small">Аккаунт создаётся <b>только по коду</b>. Лимитов на количество и частоту нет: сколько кодов выдал глава, столько игроков и смогут зайти. Создай пачку, отправь коды игрокам в личку — один код = один аккаунт. Можно выдать код конкретному нику: тогда только этот ник сможет его использовать.</p>        <div class="quick-codes">
+          <span class="muted small">Быстро:</span>
+          <button class="btn btn--sm btn--ghost" type="button" data-quick="1"><span>1 код</span></button>
+          <button class="btn btn--sm btn--ghost" type="button" data-quick="5"><span>5 кодов</span></button>
+          <button class="btn btn--sm btn--ghost" type="button" data-quick="10"><span>10 кодов</span></button>
+          <button class="btn btn--sm" type="button" data-quick="30"><span>30 кодов</span></button>
+          <button class="btn btn--sm btn--ghost" type="button" data-quick="50"><span>50 кодов</span></button>
+        </div>
+        <form id="codeForm">
+          <div class="field-row">
+            <div class="field">
+              <label for="cCount">Сколько кодов</label>
+              <input class="field__input" id="cCount" type="number" min="1" max="50" value="5">
+            </div>
+            <div class="field">
+              <label for="cNick">Выдать нику (необязательно)</label>
+              <input class="field__input" id="cNick" placeholder="Steve" maxlength="16">
+            </div>
+            <div class="field">
+              <label for="cNote">Заметка (необязательно)</label>
+              <input class="field__input" id="cNote" placeholder="напарник, гильдия" maxlength="60">
+            </div>
+          </div>
+          <div class="form-actions">
+            <button class="btn btn--sm" type="submit"><span>Создать коды</span></button>
+            <button class="btn btn--sm btn--ghost" type="button" id="codesCopyAll"><span>Скопировать свободные</span></button>
+            <button class="btn btn--sm btn--ghost" type="button" id="codesExport"><span>Скачать clan.json с кодами</span></button>
+            <button class="btn btn--sm btn--ghost" type="button" id="codesCheck"><span>Проверить файл на сайте</span></button>
+          </div>
+        </form>
+        <p class="muted small" id="codesCheckOut">Нажми «Проверить файл на сайте», чтобы увидеть, сколько кодов реально лежит на хостинге.</p>
+        <ul class="list" id="codesList"></ul>
+        <p class="muted small" id="codesEmpty" hidden>Кодов пока нет. Создай первый.</p>
+        <p class="muted small"><b>Важно:</b> коды лежат в браузере главы. Чтобы игроки увидели их на своём устройстве, нажми «Скачать clan.json с кодами» и залей этот файл на хостинг как <code>data/clan.json</code> (вкладка «Данные», шаги 3–5 в README). Без этого игрок введёт верный код, а сайт ответит «код не найден».</p>
+      </div>
+
+      <div class="card">
+        <h2>Блокировки</h2>
+        <p class="muted small">Заблокированные ники не смогут ни войти, ни создать аккаунт.</p>
+        <ul class="list" id="bansList"></ul>
+        <p class="muted small" id="bansEmpty" hidden>Заблокированных нет.</p>
+      </div>
+    </section>
+
+    <!-- DATA -->
+    <section class="panel" data-panel="data">
+      <div class="grid-2">
+        <div class="card">
+          <h2>Экспорт</h2>
+          <p class="muted small">Скачайте <code>data/clan.json</code> и замените им файл в папке <code>data</code> на GitHub — тогда изменения увидят все посетители.</p>
+          <div class="form-actions">
+            <button class="btn btn--sm" type="button" id="exportFile"><span>Скачать clan.json</span></button>
+            <button class="btn btn--sm btn--ghost" type="button" id="copyJson"><span>Скопировать JSON</span></button>
+          </div>
+          <textarea class="field__input mono" id="jsonView" rows="10" readonly></textarea>
+        </div>
+
+        <div class="card">
+          <h2>Импорт</h2>
+          <p class="muted small">Вставьте JSON с бэкапом или загрузите файл.</p>
+          <input class="field__input" type="file" id="importFile" accept="application/json,.json">
+          <textarea class="field__input mono" id="importInput" rows="8" placeholder='{ "config": {...}, "members": [...], "videos": [...] }'></textarea>
+          <div class="form-actions">
+            <button class="btn btn--sm" type="button" id="importBtn"><span>Импортировать</span></button>
+            <button class="btn btn--sm btn--danger" type="button" id="resetBtn"><span>Сбросить всё</span></button>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <h2>Код доступа</h2>
+        <p class="muted small">Блокирует панель от случайных посетителей. Настоящей защиты данные не даёт: сайт статический, всё содержимое видно в <code>data/clan.json</code>.</p>
+        <div class="field-row">
+          <div class="field">
+            <label for="pinInput">Новый код</label>
+            <input class="field__input" id="pinInput" placeholder="Новый код доступа">
+          </div>
+          <div class="field">
+            <label>&nbsp;</label>
+            <button class="btn btn--sm" type="button" id="pinSave"><span>Сохранить код</span></button>
+          </div>
+        </div>
+        <p class="muted small">Текущий код: <b id="pinState">—</b> <span id="pinIsDefault"></span></p>
+      </div>
+    </section>
+
+  </main>
+</div>
+
+<script src="assets/js/config.js"></script>
+<script src="assets/js/store.js"></script>
+<script src="assets/js/minty.js"></script>
+<script src="assets/js/admin.js"></script>
+</body>
+</html>

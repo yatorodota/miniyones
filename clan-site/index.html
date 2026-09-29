@@ -1,0 +1,324 @@
+﻿<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>МИНЬОНЫ // клан в Minecraft</title>
+<meta name="description" content="МИНЬОНЫ — клан в Minecraft: дружелюбное выживание, общая база, никаких оскорблений. Набор по заявке в Discord.">
+<meta property="og:title" content="МИНЬОНЫ — клан в Minecraft">
+<meta property="og:description" content="Клан без оскорблений: выживание, общая база, набор по заявке в Discord.">
+<meta property="og:type" content="website">
+<meta name="theme-color" content="#050607">
+<link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@700;800;900&family=JetBrains+Mono:wght@400;500;700&family=Press+Start+2P&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+<div class="backdrop" aria-hidden="true"></div>
+
+<div class="hud-frame" aria-hidden="true"><span></span><span></span><span></span><span></span></div>
+<div class="hud-rail" aria-hidden="true">SECTOR 00 // CLAN HQ</div>
+<div class="hud-rail hud-rail--right" aria-hidden="true">LAT 55.7558 / LON 37.6173</div>
+
+  <div class="statusbar">
+    <span><i class="dot"></i>CLAN // MINIYONS</span>
+    <span class="hide-sm">САЙТ <b>v2.0</b></span>
+    <span class="hide-sm">MINECRAFT <b>VANILLA</b></span>
+    <span class="right">
+      <span>UTC <b id="sbClock">00:00:00</b></span>
+    </span>
+  </div>
+
+<nav class="nav" id="nav">
+  <div class="container nav__inner">
+    <a href="#top" class="brand">
+      <span class="brand__mark"></span>
+      <span class="brand__text"><b data-c="clanName">МИНЬОНЫ</b><span>UNIT // <i data-c="tag">MINIS</i></span></span>
+    </a>
+
+    <div class="nav__links">
+      <a href="#top">Главная</a>
+      <a href="#about">О клане</a>
+      <a href="#members">Участники</a>
+      <a href="#rules">Правила</a>
+      <a href="#skills">Навыки</a>
+      <a href="#join">Контакты</a>
+      <a href="account.html#publish">Публикации</a>
+      <a href="account.html">Кабинет</a>
+    </div>
+
+    <a href="#join" class="btn btn--sm nav__cta glitch" data-text="Оставить заявку"><span>Оставить заявку</span></a>
+
+    <button class="burger" id="burger" aria-label="Меню" aria-expanded="false"><i></i></button>
+  </div>
+
+  <div class="nav__menu" id="navMenu">
+    <a href="#top">Главная</a>
+    <a href="#about">О клане</a>
+    <a href="#members">Участники</a>
+    <a href="#rules">Правила</a>
+    <a href="#skills">Навыки</a>
+    <a href="#join">Контакты</a>
+    <a href="account.html#publish">Публикации</a>
+    <a href="account.html">Кабинет</a>
+    <a href="#join" class="btn glitch" data-text="Оставить заявку"><span>Оставить заявку</span></a>
+  </div>
+</nav>
+
+<main id="top">
+
+  <!-- ===== HERO ===== -->
+  <section class="hero">
+    <div class="hero__bg">
+      <div class="hero__layer" id="heroLayer">
+        <img class="hero__img" id="heroImg" src="assets/img/hero.svg" alt="Миньон в повязке — символ клана МИНЬОНЫ">
+      </div>
+    </div>
+    <div class="hero__grid" aria-hidden="true"></div>
+    <div class="hero__lines" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></div>
+    <div class="hero__reticle" aria-hidden="true"></div>
+
+    <div class="container hero__inner">
+      <p class="hero__tag"><i class="dot-status dot-status--game"></i><span id="heroCaption">VANILLA // MINECRAFT CLAN</span></p>
+      <h1 class="hero__title display">
+        <span id="heroTitleTop">Полк</span>
+        <span id="heroTitleBottom">миньонов</span>
+      </h1>
+      <p class="hero__sub" data-c="heroSubtitle"></p>
+      <div class="hero__actions">
+        <a href="#join" class="btn glitch" data-text="Присоединиться"><span>Присоединиться</span></a>
+        <a href="#about" class="btn btn--ghost"><span>Узнать больше</span></a>
+      </div>
+      <div class="hero__coords">
+        <div>UNIT // <span data-c="tag">MINIS</span></div>
+        <div>EST. <span data-c="founded">2025</span></div> 
+        <div>MINECRAFT // VANILLA</div>
+      </div>
+    </div>
+
+    <div class="hero__scroll"><i></i>SCROLL</div>
+  </section>
+
+  <!-- ===== TICKER ===== -->
+  <div class="ticker" aria-hidden="true">
+    <div class="ticker__track" id="ticker"></div>
+  </div>
+
+  <!-- ===== 01 ABOUT ===== -->
+  <section class="sect" id="about">
+    <div class="container sect__grid">
+      <aside class="sect__aside" data-reveal>
+        <div class="sect__num">01</div>
+        <div class="sect__line">
+          <span class="meta">О КЛАНЕ</span>
+          <span class="meta">ABOUT // UNIT</span>
+          <span class="meta">STATUS // ACTIVE</span>
+          <span class="meta">AGE // <b id="statYears" style="color:inherit">0</b> YRS</span>
+        </div>
+      </aside>
+
+      <div class="sect__body">
+        <div class="sect__head">
+          <div>
+            <h2 class="sect__title display" data-reveal>О клане</h2>
+            <p class="lead" data-c="description" data-reveal data-delay="1"></p>
+            <p class="lead" data-c="motto" data-reveal data-delay="2"></p>
+          </div>
+        </div>
+
+        <div class="about">
+          <div class="about__facts" data-reveal>
+            <div class="fact"><span class="fact__n">01</span><div><b>Ваниль</b><p>Никаких модов и плагинов: только чистый Minecraft и стандартные механики.</p></div></div>
+            <div class="fact"><span class="fact__n">02</span><div><b>Общая база</b><p>Своя территория, где строим вместе и никто не трогает чужое.</p></div></div>
+            <div class="fact"><span class="fact__n">03</span><div><b>Клан</b><p>Небольшое сообщество игроков: все друг друга знают, играют вместе, а не по списку.</p></div></div>
+            <div class="fact"><span class="fact__n">04</span><div><b>Правила</b><p>Уважение, чужие постройки не трогаем, не берем без согласия.</p></div></div>
+          </div>
+          <div data-reveal data-delay="2">
+            <p class="meta" style="margin-bottom:14px">СВЯЗЬ // DISCORD</p>
+            <div class="strip" id="accessBox">
+              <div class="strip__item strip__item--main"><span>ПРИГЛАШЕНИЕ</span><b id="accInvite">—</b></div>
+              <div class="strip__item"><span>ЗАЯВКИ</span><b>ОТКРЫТЫ</b></div>
+              <div class="strip__spacer"></div>
+              <div class="strip__actions">
+                <button class="btn btn--sm" id="copyInvite" data-copy="" type="button"><span>Скопировать ссылку</span></button>
+                <a class="btn btn--sm btn--ghost" id="accJoin" href="#" target="_blank" rel="noopener"><span>Вступить в Discord</span></a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="stats" id="statsGrid" data-reveal data-delay="3"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 02 MEMBERS ===== -->
+  <section class="sect" id="members">
+    <div class="container sect__grid">
+      <aside class="sect__aside" data-reveal>
+        <div class="sect__num">02</div>
+        <div class="sect__line">
+          <span class="meta">УЧАСТНИКИ</span>
+          <span class="meta">ROSTER // <span id="rosterCount">0</span></span>
+          <span class="meta">ACCESS // OPEN</span>
+        </div>
+      </aside>
+
+      <div class="sect__body">
+        <div class="sect__head">
+          <h2 class="sect__title display" data-reveal>Личный состав</h2>
+          <p class="meta" data-reveal>НИК КЛИКАЕТСЯ // КОПИРУЕТСЯ</p>
+        </div>
+
+        <div class="roster__controls" data-reveal>
+          <div class="chips" id="rankFilters"></div>
+          <input class="search" type="search" id="memberSearch" placeholder="ПОИСК ПО НИКУ" aria-label="Поиск участника">
+        </div>
+
+        <div class="cards" id="featuredCards" data-reveal></div>
+        <div class="roster__list" id="membersList" data-reveal data-delay="1"></div>
+        <p class="empty" id="membersEmpty" hidden>УЧАСТНИКИ НЕ НАЙДЕНЫ</p>
+
+        <div class="city" data-reveal>
+          <div class="city__head">
+            <h3 class="city__title display">Город // рейтинг</h3>
+            <div class="city__actions">
+              <span class="meta">ИГРОКОВ // <span id="cityCount">0</span></span>
+              <a href="account.html" class="btn btn--sm btn--ghost"><span>Войти / Регистрация</span></a>
+            </div>
+          </div>
+          <p class="lead city__lead">Публикуй скрины своих работ в канале — если правку засчитывают, придёт <b>+1 звезда</b>. Звёзды решают ранг в городе.</p>
+          <div class="rank" id="cityRank"></div>
+          <p class="empty" id="cityEmpty" hidden>АККАУНТОВ ПОКА НЕТ — <a href="account.html" style="color:#050607">СОЗДАЙ ПЕРВЫЙ</a></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 03 RULES ===== -->
+  <section class="sect" id="rules">
+    <div class="container sect__grid">
+      <aside class="sect__aside" data-reveal>
+        <div class="sect__num">03</div>
+        <div class="sect__line">
+          <span class="meta">ПРАВИЛА</span>
+          <span class="meta">CODEX // 4.1</span>
+          <span class="meta">ENFORCED // TRUE</span>
+        </div>
+      </aside>
+
+      <div class="sect__body">
+        <div class="sect__head">
+          <h2 class="sect__title display" data-reveal>Кодекс клана</h2>
+          <p class="meta" data-reveal>НАРУШЕНИЕ = ОТСТРАНЕНИЕ</p>
+        </div>
+
+        <div class="rules" data-reveal>
+          <div class="rule">
+            <span class="rule__n">01</span>
+            <div>
+              <h3>Уважение</h3>
+              <p>Токсичность, грифтинг и травля — повод для отстранения без предупреждения. Мы общаемся как команда, даже когда играем по разные стороны.</p>
+              <span class="rule__code">CODE // RESPECT</span>
+            </div>
+          </div>
+          <div class="rule">
+            <span class="rule__n">02</span>
+            <div>
+              <h3>Имущество</h3>
+              <p>Чужие постройки не трогаем без согласования. Территория базы помечена зонами — они неприкосновенны.</p>
+              <span class="rule__code">CODE // PROPERTY</span>
+            </div>
+          </div>
+          <div class="rule">
+            <span class="rule__n">03</span>
+            <div>
+              <h3>Обязательства</h3>
+              <p>Взял задачу — доведи до конца. Ответственный за участок отвечает за него перед кланом, а не перед куратором.</p>
+              <span class="rule__code">CODE // DUTY</span>
+            </div>
+          </div>
+          <div class="rule">
+            <span class="rule__n">04</span>
+            <div>
+              <h3>Новички</h3>
+              <p>Не бросаем своих. Каждому новому игроку даётся испытательный срок в неделю и наставник, который помогает освоиться.</p>
+              <span class="rule__code">CODE // SUPPORT</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 04 SKILLS ===== -->
+  <section class="sect" id="skills">
+    <div class="container sect__grid">
+      <aside class="sect__aside" data-reveal>
+        <div class="sect__num">04</div>
+        <div class="sect__line">
+          <span class="meta">НАВЫКИ</span>
+          <span class="meta">SKILLS // <span id="skillsCount">0</span></span>
+          <span class="meta">CLASSES // OPEN</span>
+        </div>
+      </aside>
+
+      <div class="sect__body">
+        <div class="sect__head">
+          <h2 class="sect__title display" data-reveal>Навыки</h2>
+          <p class="meta" data-reveal>НАЗВАНИЯ И ОПИСАНИЕ РЕДАКТИРУЮТСЯ В ПАНЕЛИ</p>
+        </div>
+
+        <div class="skills" id="skillsGrid" data-reveal data-delay="1"></div>
+        <p class="empty" id="skillsEmpty" hidden>НАВЫКИ НЕ ЗАДАНЫ</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== CTA ===== -->
+  <section class="cta" id="join">
+    <div class="cta__bg" aria-hidden="true"></div>
+    <div class="container">
+      <p class="cta__status" data-reveal><i class="dot-status dot-status--game"></i><span id="joinStatus">Набор по заявке</span></p>
+      <h2 class="cta__title display glitch" data-text="Вступай в МИНЬОНЫ" data-reveal><span>Вступай в МИНЬОНЫ</span></h2>
+      <div class="cta__actions" data-reveal data-delay="1">
+        <a href="#join" class="btn glitch" data-text="Оставить заявку" id="joinBtn"><span>Оставить заявку</span></a>
+        <a href="#about" class="btn btn--ghost"><span>Сначала изучить</span></a>
+      </div>
+      <p class="cta__note" data-c="recruitmentText" data-reveal data-delay="2"></p>
+    </div>
+  </section>
+
+</main>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer__top">
+      <a href="#top" class="brand">
+        <span class="brand__mark"></span>
+        <span class="brand__text"><b data-c="clanName">МИНЬОНЫ</b><span>UNIT // <i data-c="tag">MNY</i></span></span>
+      </a>
+      <nav class="footer__links">
+        <a id="fDiscord" href="#">Discord</a>
+        <a href="#join">Заявка</a>
+        <a href="admin.html">Панель</a>
+      </nav>
+    </div>
+    <div class="footer__bot">
+      <p class="meta">© <span id="year"></span> <span data-c="clanName">МИНЬОНЫ</span> // NOT AFFILIATED WITH MOJANG</p>
+      <p class="meta">СИСТЕМА // <span id="ver">2.0</span></p>
+    </div>
+  </div>
+</footer>
+
+<a class="totop" href="#top" aria-label="Наверх">▲</a>
+
+<script src="assets/js/config.js"></script>
+<script src="assets/js/store.js"></script>
+<script src="assets/js/minty.js"></script>
+<script src="assets/js/app.js"></script>
+</body>
+</html>
